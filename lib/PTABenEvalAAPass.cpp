@@ -85,6 +85,16 @@ static char ID;
               score = "true";
             else
               score = "inadequate";
+	  } else if (fun.equals(PARTIALALIAS)) {
+	    r = (aares == MayAlias || aares == MustAlias); ex = "MAY";
+            if (aares == NoAlias)
+              score = "false";
+ 	    else if (aares == MayAlias)
+              score = "enough";
+	    else if (aares == MustAlias)
+              score = "true";
+            else
+              score = "inadequate";
 	  } else if (fun.equals(EXPECTEDFAIL_MAYALIAS)) {
 	    r = (aares != MayAlias && r != MustAlias); ex = "EXPECTEDFAIL_MAY";
             if (aares == NoAlias)
