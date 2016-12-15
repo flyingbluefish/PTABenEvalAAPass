@@ -1,7 +1,6 @@
 PTABenEvalAAPass
 
 
-
 PTABen test suite is useful in order to evaluate AA Pass. 
 This pass provides an evaluation functionality after AA passes 
 by checking alias according to intrinsic functions inside PTABen test suites;
@@ -13,7 +12,7 @@ by checking alias according to intrinsic functions inside PTABen test suites;
 - EXPECTEDFAIL_NOALIAS
 - EXPECTEDFAIL_MAYALIAS
 
-In detail, see PTABen: https://github.com/unsw-corg/PTABen
+About test suite itself in detail, see PTABen: https://github.com/unsw-corg/PTABen
 
 To get .ll by compiling an PTABen test
 ```
