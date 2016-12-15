@@ -34,8 +34,8 @@ static char ID;
     if (count == 0) printf("===== Alias Analysis Benchmark Evaluator Result =====\n");
     count++;
       //    errs() << "I saw a function called " << F.getName() << "!\n";
-      AliasAnalysis *AA = &this->getAnalysis<AAResultsWrapperPass>().getAAResults();  
-    const char *ex, *s;
+    AliasAnalysis *AA = &this->getAnalysis<AAResultsWrapperPass>().getAAResults();  
+    const char *ex, *s, *score;
 
     for (auto &BB : F) {
       for (auto &I : BB) {
@@ -50,13 +50,45 @@ static char ID;
 	  bool r = false;
 	  if (fun.equals(NOALIAS)) {
             r = (aares == NoAlias); ex = "NO";
+            if (aares == NoAlias)
+              score = "true";
+ 	    else if (aares == MayAlias)
+              score = "inadequate";
+	    else if (aares == MustAlias)
+              score = "false";
+            else
+              score = "inadequate";
 	  } else if (fun.equals(MAYALIAS)) {
 	    r = (aares == MayAlias || aares == MustAlias); ex = "MAY";
+            if (aares == NoAlias)
+              score = "false";
+ 	    else if (aares == MayAlias)
+              score = "enough";
+	    else if (aares == MustAlias)
+              score = "true";
+            else
+              score = "inadequate";
 	  } else if (fun.equals(MUSTALIAS)) {
 	    r = (aares == MustAlias); ex = "MUST";
+            if (aares == NoAlias)
+              score = "false";
+ 	    else if (aares == MayAlias)
+              score = "inadequate";
+	    else if (aares == MustAlias)
+              score = "true";
+            else
+              score = "inadequate";
 	  } else if (fun.equals(PARTIALALIAS)) {
 	    //		r = (aares == PartialAlias);
 	    r = (aares == MayAlias); ex = "PARTIAL";
+            if (aares == NoAlias)
+              score = "false";
+ 	    else if (aares == MayAlias)
+              score = "enough";
+	    else if (aares == MustAlias)
+              score = "true";
+            else
+              score = "inadequate";
           } else {
             continue;
 	  }
@@ -64,9 +96,9 @@ static char ID;
 	  else if (aares == MayAlias) s = "MAY";
 	  else if (aares == MustAlias) s = "MUST";
           if (r)
-            printf("  pta true %s ex %s ", s, ex);
+            printf("  pta %s %s ex %s ", score, s, ex);
           else
-            printf("  pta false %s ex %s ", s, ex);
+            printf("  pta %s %s ex %s ", score, s, ex);
           const llvm::DebugLoc &dg = I.getDebugLoc();
           if (dg)
             printf(" %d\n", dg.getLine());
