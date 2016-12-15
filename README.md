@@ -55,6 +55,8 @@ For example
 As score, inadequate, enough, good, true, false are expected. inadequate means no or must is expected but may, enough means may is expected then may, good means may is expected but no or must, true means expected result is acquired, false means might-be-runtime-error. 
 
 
-
+Notice
 
 This software is developped independently. Don't ask question about this software to PTABen author.
+
+Working with LLVM 3.9
