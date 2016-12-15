@@ -14,9 +14,9 @@ PTABen test program contains following MARKER function.
 - EXPECTEDFAIL_NOALIAS
 - EXPECTEDFAIL_MAYALIAS
 
-This pass recognises the above MARKER functions and then tries to check alias of the arguments of these functions
+This pass recognises the above MARKER functions in IR and then tries to check alias of the arguments of these functions
 by passing the internal representaion as LLVM IR objects to Alias Analysis of LLVM infrastructure.
-Each AAes are registered before executing this pass, so the alias checking will measure the integrated result of each AAes.
+Each AAes are registered before executing this pass, so the alias checking will measure the integrated performance of each AAes.
 
 About test suite itself in detail, see PTABen: https://github.com/unsw-corg/PTABen
 
