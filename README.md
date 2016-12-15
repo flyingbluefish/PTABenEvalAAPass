@@ -37,7 +37,7 @@ Expected result is like following
 
 A line shows
 ```
-  pta  (true or false)  (result MAY|MUST|NO) ex (expected MAY|MUST|NO)  (optional linenumber)
+  pta  (score)  (result MAY|MUST|NO) ex (expected MAY|MUST|NO)  (optional linenumber)
 ```  
 
 For example
@@ -50,7 +50,7 @@ For example
   pta false MAY ex NO
 ```
 
-inadequate, enough, good, true, false are expected. inadequate means no or must is expected but may, enough means may is expected then may, good means may is expected but no or must, true means expected result is acquired, false means might-be-runtime-error. 
+As score, inadequate, enough, good, true, false are expected. inadequate means no or must is expected but may, enough means may is expected then may, good means may is expected but no or must, true means expected result is acquired, false means might-be-runtime-error. 
 
 
 
