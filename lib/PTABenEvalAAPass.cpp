@@ -21,11 +21,16 @@ static char ID;
   llvm::StringRef MAYALIAS;
   llvm::StringRef MUSTALIAS;
   llvm::StringRef PARTIALALIAS;
+  llvm::StringRef EXPECTEDFAIL_MAYALIAS;
+  llvm::StringRef EXPECTEDFAIL_NOALIAS;
   PTABenEvalAAPass() : FunctionPass(ID), 
 		       NOALIAS("NOALIAS"), 
 		       MAYALIAS("MAYALIAS"), 
  		       MUSTALIAS("MUSTALIAS"),
-		       PARTIALALIAS("PARTIALALIAS") {
+		       PARTIALALIAS("PARTIALALIAS"),
+		       EXPECTEDFAIL_MAYALIAS("EXPECTEDFAIL_MAYALIAS"),
+		       EXPECTEDFAIL_NOALIAS("EXPECTEDFAIL_NOALIAS")
+  {
     count = 0;
   }
   virtual void getAnalysisUsage(AnalysisUsage &AU) const ;
@@ -80,9 +85,18 @@ static char ID;
               score = "true";
             else
               score = "inadequate";
-	  } else if (fun.equals(PARTIALALIAS)) {
-	    //		r = (aares == PartialAlias);
-	    r = (aares == MayAlias); ex = "PARTIAL";
+	  } else if (fun.equals(EXPECTEDFAIL_MAYALIAS)) {
+	    r = (aares != MayAlias && r != MustAlias); ex = "EXPECTEDFAIL_MAY";
+            if (aares == NoAlias)
+              score = "true";
+ 	    else if (aares == MayAlias)
+              score = "false";
+	    else if (aares == MustAlias)
+              score = "false";
+            else
+              score = "inadequate";
+	  } else if (fun.equals(EXPECTEDFAIL_NOALIAS)) {
+	    r = (aares != NoAlias); ex = "EXPECTEDFAIL_NO";
             if (aares == NoAlias)
               score = "false";
  	    else if (aares == MayAlias)
