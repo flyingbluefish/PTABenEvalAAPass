@@ -10,6 +10,8 @@ by checking alias according to intrinsic functions inside PTABen test suites;
 - MUSTALIAS
 - MAYALIAS
 - PARTIALALIAS ( not supported yet )
+- EXPECTEDFAIL_NOALIAS
+- EXPECTEDFAIL_MAYALIAS
 
 In detail, see PTABen: https://github.com/unsw-corg/PTABen
 
@@ -40,5 +42,10 @@ For example
   pta true MAY ex MAY
   pta false MAY ex NO
 ```
+
+inadequate, enough, good, true, false are expected. inadequate means no or must is expected but may, enough means may is expected then may, good means may is expected but no or must, true means expected result is acquired, false means might-be-runtime-error. 
+
+
+
 
 This software is developped independently. Don't ask question about this software to PTABen author.
