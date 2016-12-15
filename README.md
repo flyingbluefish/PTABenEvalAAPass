@@ -1,11 +1,12 @@
 PTABenEvalAAPass
 
-This is one of unofficial LLVM Pass which evaluates Alias Analysis (AA) passes performance by compiling PTABen testsuites. 
+This is one of unofficial LLVM Pass which intends to evaluate Alias Analysis (AA) passes performance by compiling PTABen testsuites. 
 
 PTABen test suite is useful in order to evaluate AA Pass. 
 This pass provides an evaluation functionality after AA passes 
-by checking alias according to intrinsic functions inside PTABen test suites;
+by checking alias according to intrinsic MARKER functions inside PTABen test suites;
 
+PTABen test program contains following MARKER function.
 - NOALIAS
 - MUSTALIAS
 - MAYALIAS
@@ -13,7 +14,13 @@ by checking alias according to intrinsic functions inside PTABen test suites;
 - EXPECTEDFAIL_NOALIAS
 - EXPECTEDFAIL_MAYALIAS
 
+This pass recognises the above MARKER functions and then tries to check alias of the arguments of these functions
+by passing the internal representaion as LLVM IR objects to Alias Analysis of LLVM infrastructure.
+Each AAes are registered before executing this pass, so the alias checking will measure the integrated result of each AAes.
+
 About test suite itself in detail, see PTABen: https://github.com/unsw-corg/PTABen
+
+
 
 To get .ll by compiling an PTABen test
 ```
