@@ -64,7 +64,7 @@ static char ID;
 	    else if (aares == MustAlias)
               score = "false";
             else
-              score = "inadequate";
+              score = "unknown";
 	  } else if (fun.equals(MAYALIAS)) {
 	    r = (aares == MayAlias || aares == MustAlias); ex = "MAY";
             if (aares == NoAlias)
@@ -74,7 +74,7 @@ static char ID;
 	    else if (aares == MustAlias)
               score = "true";
             else
-              score = "inadequate";
+              score = "unknown";
 	  } else if (fun.equals(MUSTALIAS)) {
 	    r = (aares == MustAlias); ex = "MUST";
             if (aares == NoAlias)
@@ -84,7 +84,7 @@ static char ID;
 	    else if (aares == MustAlias)
               score = "true";
             else
-              score = "inadequate";
+              score = "unknown";
 	  } else if (fun.equals(PARTIALALIAS)) {
 	    r = (aares == MayAlias || aares == MustAlias); ex = "MAY";
             if (aares == NoAlias)
@@ -94,7 +94,7 @@ static char ID;
 	    else if (aares == MustAlias)
               score = "true";
             else
-              score = "inadequate";
+              score = "unknown";
 	  } else if (fun.equals(EXPECTEDFAIL_MAYALIAS)) {
 	    r = (aares != MayAlias && r != MustAlias); ex = "EXPECTEDFAIL_MAY";
             if (aares == NoAlias)
@@ -104,7 +104,7 @@ static char ID;
 	    else if (aares == MustAlias)
               score = "false";
             else
-              score = "inadequate";
+              score = "unknown";
 	  } else if (fun.equals(EXPECTEDFAIL_NOALIAS)) {
 	    r = (aares != NoAlias); ex = "EXPECTEDFAIL_NO";
             if (aares == NoAlias)
@@ -114,7 +114,7 @@ static char ID;
 	    else if (aares == MustAlias)
               score = "true";
             else
-              score = "inadequate";
+              score = "unknown";
           } else {
             continue;
 	  }
