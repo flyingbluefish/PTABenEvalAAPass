@@ -1,5 +1,6 @@
 PTABenEvalAAPass
 
+This is one of unofficial LLVM Pass which evaluates Alias Analysis (AA) passes performance by compiling PTABen testsuites. 
 
 PTABen test suite is useful in order to evaluate AA Pass. 
 This pass provides an evaluation functionality after AA passes 
