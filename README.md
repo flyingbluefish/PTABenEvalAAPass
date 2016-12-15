@@ -39,6 +39,7 @@ A line shows
 ```
   pta  (score)  (result MAY|MUST|NO) ex (expected MAY|MUST|NO)  (optional linenumber)
 ```  
+The line is generated when a MARKER function is specified in test program.
 
 For example
 ```
