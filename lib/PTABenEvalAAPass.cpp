@@ -41,7 +41,9 @@ static char ID;
       for (auto &I : BB) {
 	CallInst *call = dyn_cast<CallInst>(&I);
 	if (call) {
-          const Function *called = dyn_cast<Function>(call->getCalledFunction());
+          const Value *v = call->getCalledFunction();
+          if (v == NULL) continue;
+          const Function *called = dyn_cast<Function>(v);
           const StringRef &fun = called->getName();
           if (call->getNumArgOperands() != 2) continue;
 	  Value* V1 = call->getArgOperand(0);
@@ -95,6 +97,7 @@ static char ID;
 	  if (aares == NoAlias) s = "NO";
 	  else if (aares == MayAlias) s = "MAY";
 	  else if (aares == MustAlias) s = "MUST";
+          else s = "UNKNOWN";
           if (r)
             printf("  pta %s %s ex %s ", score, s, ex);
           else
