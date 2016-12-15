@@ -2,8 +2,8 @@ PTABenEvalAAPass
 
 This is one of unofficial LLVM Pass which intends to evaluate Alias Analysis (AA) passes performance by compiling PTABen testsuites. 
 
-It is difficult to measure the performance of Alias Analysis pass. Because it is difficult to develop and accumlate accurate test programs as testing resource. Framework is required for AA pass. There are several trial to this problem. Someone tries to add #pragma, someone as special string.
-In this situation, PTABen test suite has smart solution and be useful to evaluate AA Pass. The testsuites uses MARKER functions to indicate the trigger of checking alias.  
+It is difficult to measure the performance of Alias Analysis pass. Because how to specify the location and result of the alias check result is difficult. So it is hard to develop and accumlate accurate test programs as testing resource. Framework is expected and required for AA pass evaluation. There have been several trials to this problem. Someone tries to add #pragma, someone uses special string.
+In this situation, PTABen test suite provides smart solution and be useful to evaluate AA Pass. The testsuites uses MARKER functions to indicate the trigger of checking alias.  
 
 This pass provides an evaluation functionality as checking alias according to MARKER functions specified inside PTABen test suites;
 
