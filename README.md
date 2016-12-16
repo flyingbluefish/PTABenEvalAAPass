@@ -62,7 +62,7 @@ For example
   pta false MAY ex NO
 ```
 
-As score, inadequate, enough, toomuch, true, false, buggy are expected. inadequate means no or must is expected but may, enough means may is expected then may, toomuch means may is expected but must, true means the expected result is acquired (must expected and must acquired, no expected and no acquired), false means must or may expected but no, buggy means no expected but must. 
+As score, inadequate, toomuch, true, false, buggy are expected. inadequate means NO or MUST is expected but MAY acquired, toomuch means MAY is expected but MUST, true means the expected result is acquired (MUST expected and MUST acquired, MAY expected and MAY acquired, NO expected and NO acquired), false means MUST or MAY expected but NO, buggy means NO expected but MUST. 
 
 
 Notice
