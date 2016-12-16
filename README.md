@@ -62,7 +62,7 @@ For example
   pta false MAY ex NO
 ```
 
-As score, inadequate, enough, good, true, false are expected. inadequate means no or must is expected but may, enough means may is expected then may, good means may is expected but no or must, true means expected result is acquired, false means might-be-runtime-error. 
+As score, inadequate, enough, toomuch, true, false, buggy are expected. inadequate means no or must is expected but may, enough means may is expected then may, toomuch means may is expected but must, true means the expected result is acquired (must expected and must acquired, no expected and no acquired), false means must or may expected but no, buggy means no expected but must. 
 
 
 Notice
