@@ -24,7 +24,9 @@ About test suite itself in detail, see PTABen: https://github.com/unsw-corg/PTAB
 
 Build
 ```
-cd lib
+cd $SOMEDIR/PTABenEvalAAPass
+mkdir build
+cd build
 cmake ..
 make
 ```
