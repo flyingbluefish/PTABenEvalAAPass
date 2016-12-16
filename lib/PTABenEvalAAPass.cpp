@@ -70,7 +70,7 @@ static char ID;
             if (aares == NoAlias)
               score = "false";
  	    else if (aares == MayAlias)
-              score = "enough";
+              score = "true";
 	    else if (aares == MustAlias)
               score = "toomuch";
             else
@@ -90,7 +90,7 @@ static char ID;
             if (aares == NoAlias)
               score = "false";
  	    else if (aares == MayAlias)
-              score = "enough";
+              score = "true";
 	    else if (aares == MustAlias)
               score = "toomuch";
             else
