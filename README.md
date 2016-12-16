@@ -22,6 +22,14 @@ Each AAes are registered before executing this pass, so the alias checking will 
 About test suite itself in detail, see PTABen: https://github.com/unsw-corg/PTABen
 
 
+Build
+```
+cd lib
+cmake ..
+make
+```
+
+Usage
 
 To get .ll by compiling an PTABen test
 ```
