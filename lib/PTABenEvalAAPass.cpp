@@ -62,7 +62,7 @@ static char ID;
  	    else if (aares == MayAlias)
               score = "inadequate";
 	    else if (aares == MustAlias)
-              score = "maybebug";
+              score = "buggy";
             else
               score = "unknown";
 	  } else if (fun.equals(MAYALIAS)) {
