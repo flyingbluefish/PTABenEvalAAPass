@@ -62,7 +62,7 @@ static char ID;
  	    else if (aares == MayAlias)
               score = "inadequate";
 	    else if (aares == MustAlias)
-              score = "false";
+              score = "bug";
             else
               score = "unknown";
 	  } else if (fun.equals(MAYALIAS)) {
@@ -72,7 +72,7 @@ static char ID;
  	    else if (aares == MayAlias)
               score = "enough";
 	    else if (aares == MustAlias)
-              score = "true";
+              score = "toomuch";
             else
               score = "unknown";
 	  } else if (fun.equals(MUSTALIAS)) {
@@ -92,7 +92,7 @@ static char ID;
  	    else if (aares == MayAlias)
               score = "enough";
 	    else if (aares == MustAlias)
-              score = "true";
+              score = "toomuch";
             else
               score = "unknown";
 	  } else if (fun.equals(EXPECTEDFAIL_MAYALIAS)) {
@@ -110,7 +110,7 @@ static char ID;
             if (aares == NoAlias)
               score = "false";
  	    else if (aares == MayAlias)
-              score = "enough";
+              score = "true";
 	    else if (aares == MustAlias)
               score = "true";
             else
