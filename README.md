@@ -1,17 +1,37 @@
 PTABenEvalAAPass
 
+This is one of unofficial LLVM Pass which intends to evaluate Alias Analysis (AA) passes performance by compiling PTABen testsuites. 
 
+It is difficult to measure the performance of Alias Analysis pass. Because there is no common method of how to specify the location and result of the alias check result. At least, the method should clear which variables or expressions should be investigated as alias, where the comparison between pointers should be performed, and what alias level is expected between them. So it is hard to develop and accumlate accurate test programs as testing resource. Framework is expected and required for AA pass evaluation. There have been several trials to this problem. Someone tries to add #pragma, someone uses special string.
+In this situation, PTABen test suite provides smart solution and be useful to evaluate AA Pass. The testsuites uses MARKER functions to indicate the trigger of checking alias.  
 
-PTABen test suite is useful in order to evaluate AA Pass. 
-This pass provides an evaluation functionality after AA passes 
-by checking alias according to intrinsic functions inside PTABen test suites;
+This pass provides an evaluation functionality as checking alias according to MARKER functions specified inside PTABen test suites;
 
+PTABen test program contains following MARKER function.
 - NOALIAS
 - MUSTALIAS
 - MAYALIAS
 - PARTIALALIAS ( not supported yet )
+- EXPECTEDFAIL_NOALIAS
+- EXPECTEDFAIL_MAYALIAS
 
-In detail, see PTABen: https://github.com/unsw-corg/PTABen
+This pass recognises the above MARKER functions in IR and then tries to check alias of the arguments of these functions
+by passing the internal representaion as LLVM IR objects to Alias Analysis of LLVM infrastructure.
+Each AAes are registered before executing this pass, so the alias checking will measure the integrated performance of each AAes.
+
+About test suite itself in detail, see PTABen: https://github.com/unsw-corg/PTABen
+
+
+Build
+```
+cd $SOMEDIR/PTABenEvalAAPass
+mkdir build
+cd build
+cmake ..
+make
+```
+
+Usage
 
 To get .ll by compiling an PTABen test
 ```
@@ -28,8 +48,9 @@ Expected result is like following
 
 A line shows
 ```
-  pta  (true or false)  (result MAY|MUST|NO) ex (expected MAY|MUST|NO)  (optional linenumber)
+  pta  (score)  (result MAY|MUST|NO) ex (expected MAY|MUST|NO)  (optional linenumber)
 ```  
+The line is generated when a MARKER function is specified in test program. Every calling of MARKER function generates a line.
 
 For example
 ```
@@ -41,4 +62,11 @@ For example
   pta false MAY ex NO
 ```
 
+As score, inadequate, enough, good, true, false are expected. inadequate means no or must is expected but may, enough means may is expected then may, good means may is expected but no or must, true means expected result is acquired, false means might-be-runtime-error. 
+
+
+Notice
+
 This software is developped independently. Don't ask question about this software to PTABen author.
+
+Working with LLVM 3.9
