@@ -7,7 +7,7 @@ In this situation, PTABen test suite provides smart solution and be useful to ev
 
 This pass provides an evaluation functionality as checking alias according to MARKER functions specified inside PTABen test suites;
 
-PTABen test program contains following MARKER function.
+PTABen test program contains the following MARKER functions.
 - NOALIAS
 - MUSTALIAS
 - MAYALIAS
