@@ -7,7 +7,7 @@ In this situation, PTABen test suite provides smart solution and be useful to ev
 
 This pass provides an evaluation functionality as checking alias according to MARKER functions specified inside PTABen test suites;
 
-PTABen test program contains following MARKER function.
+PTABen test program contains the following MARKER functions.
 - NOALIAS
 - MUSTALIAS
 - MAYALIAS
@@ -59,7 +59,7 @@ For example
   pta true MAY ex MAY
   pta true MAY ex MAY
   pta true MAY ex MAY
-  pta false MAY ex NO
+  pta inadequate MAY ex NO
 ```
 
 As score, inadequate, toomuch, true, false, buggy are expected. inadequate means NO or MUST is expected but MAY acquired, toomuch means MAY is expected but MUST, true means the expected result is acquired (MUST expected and MUST acquired, MAY expected and MAY acquired, NO expected and NO acquired), false means MUST or MAY expected but NO, buggy means NO expected but MUST. 
