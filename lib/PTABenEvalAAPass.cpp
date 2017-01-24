@@ -106,9 +106,9 @@ static char ID;
             if (aares == NoAlias)
               score = "true";
  	    else if (aares == MayAlias)
-              score = "inadequate";
+              score = "inadequate"; // suspected
 	    else if (aares == MustAlias)
-              score = "false";
+              score = "true";    // suspected
             else if (aares == PartialAlias)
               score = "inadequate";
             else
