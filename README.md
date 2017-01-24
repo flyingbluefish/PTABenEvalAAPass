@@ -73,8 +73,9 @@ Score
 As score, inadequate, toomuch, true, false, buggy are expected. inadequate means NO or MUST is expected but MAY acquired, toomuch means MAY is expected but MUST, true means the expected result is acquired (MUST expected and MUST acquired, MAY expected and MAY acquired, NO expected and NO acquired), false means MUST or MAY expected but NO, buggy means NO expected but MUST. 
 
 Score is the one of the following:
+```
 inadequate, true, false, buggy, toomuch
-
+```
 They comes from the optimization point of view. 
 
 
